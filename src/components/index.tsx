@@ -1,7 +1,5 @@
-import Header from './Header/Header'
-import Bottom from './Bottom/Bottom'
+import Article from './Article/Article'
 
 export {
-    Header,
-    Bottom
+    Article
 }
