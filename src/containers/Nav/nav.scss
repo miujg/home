@@ -1,0 +1,82 @@
+.nav {
+  height: 100%;
+  width: 100%;
+  .nav-mask {
+    height: 180px;
+    background: rgba(201,153,121, 0.3);
+  }
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 58px;
+    .user-head {
+      height: 128px;
+      width: 128px;
+      border-radius: 50%;
+      background: black;
+      border: 5px solid #fff;
+      position: relative;
+      background: url('./head.jpg');
+      background-size: 100% 100%;
+      position: absolute;
+      top: -64px;
+    }
+    .user-name {
+      font-size: 30px;
+      cursor: pointer;
+      font-family: Georgia, "Nimbus Roman No9 L", "Songti SC", "Courier New", Times, Georgia, serif;
+      font-weight: bold;
+      margin: 15px 0 10px 0;
+      &:hover {
+        color: #b0a0aa;
+      }
+    }
+    .user-desc {
+      font-size: 16px;
+      color: #333;
+    }
+  }
+  .search-box {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 10px 0;
+    // input css modify 
+    .ant-input {
+      border-radius: 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #ccc;
+      color: #666;
+      &:hover {
+      }
+    }
+  }
+  .nav-icon {
+    width: 195px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    .nav-item {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 2px solid rgba(0,0,0,0.1);
+      color: rgba(0,0,0,0.5);
+      font-size: 18px;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      transition: color .5s, background .5s;
+      &:nth-child(n + 5) {
+        margin-top: 5px;
+      }
+      &:hover {
+        color: #fff;
+        background: rgba(0,0,0,0.1);;
+      }
+    }
+  }
+}
