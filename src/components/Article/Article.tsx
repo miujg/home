@@ -10,7 +10,6 @@ interface IArticle {
 }
 
 export default function Article(props: IArticle) {
-  console.log(props)
   
   return (
     <div className={'article'}>

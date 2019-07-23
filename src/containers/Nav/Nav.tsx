@@ -1,5 +1,6 @@
 import './nav.scss'
 import React, {useState, useEffect} from 'react'
+import {NavLink} from 'react-router-dom'
 import {Icon, Input} from 'antd'
 
 export default function Nav(props:any) {
@@ -20,8 +21,8 @@ export default function Nav(props:any) {
         />
       </div>
       <div className={'nav-icon'}>
-        <span className={'nav-item'}><Icon type="home" /></span>
-        <span className={'nav-item'}><Icon type="book" /></span>
+        <NavLink to={'index'}><span title={'主页'} className={'nav-item'}><Icon type="home" /></span></NavLink>
+        <NavLink to={'/edit'}><span className={'nav-item'}><Icon type="book" /></span></NavLink>
         <span className={'nav-item'}><Icon type="download" /></span>
         <span className={'nav-item'}><Icon type="bulb" /></span>
         <span className={'nav-item'}><Icon type="tag" /></span>

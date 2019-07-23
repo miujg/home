@@ -9,8 +9,8 @@ export default function Main(props:any) {
   return (
     <div className={'main'}>
       { 
-        articles.map((item) => (
-          <Article />
+        articles.map((item, i) => (
+          <Article key={i} />
         ))
       }
     </div>
