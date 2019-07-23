@@ -19,7 +19,7 @@ export default function Main(props:any) {
   return (
     <div className={'main'}>
       { 
-        <Article article={article} />
+        <Article />
       }
     </div>
   )

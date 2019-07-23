@@ -1,15 +1,34 @@
-import './article'
+import './article.scss'
 import React, {useState, useEffect} from 'react'
 
 interface IArticle {
-  article: {
+  article?: {
     name: string,
     createTime: string,
     content: string
   } 
 }
 
-const article = {
+export default function Article(props: IArticle) {
+  console.log(props)
+  
+  return (
+    <div className={'article'}>
+      <div className={'header'}>
+        <h1 className={'title'}>{props.article.name}</h1>
+        <span className={'create-time'}>{props.article.createTime}</span>        
+      </div>
+      <p className={'content'}>
+        {props.article.content}
+      </p>
+      <div className={'bottom'}>
+        <span className={'read-more'}>阅读全文>></span>
+      </div>
+    </div>
+  )
+}
+
+Article.defaultProps ={
   article: {
     name: '博客文章标题',
     createTime: '2019-07-22',
@@ -19,13 +38,4 @@ const article = {
     等其他抽象层组成的组件会形成“嵌套地狱”。尽管我们可以在 DevTools 过滤掉它们，但这说明了一个更深层次的问题：React 需要为共享状
     态逻辑提供更好的原生途径。`
   }
-}
-
-export default function Article(props: IArticle = article) {
-  console.log(props)
-  return (
-    <div className={'article'}>
-      <h1>{props.article.name}</h1>
-    </div>
-  )
 }
