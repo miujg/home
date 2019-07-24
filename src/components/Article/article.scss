@@ -46,16 +46,7 @@
       position: absolute;
       right: 0;
       top: 8px;
-      cursor: pointer;
-      display: inline-block;
-      color: #fff;
-      background-color: #0bf;
-      border-radius: 5px;
-      padding: 2px 3px;
-      &:hover {
-        background: #9c9;
-        padding: 3px 4px;
-      }
+      @include button-normol
     }
   }
 }

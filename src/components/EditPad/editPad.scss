@@ -1,11 +1,44 @@
+::placeholder {
+  color: #9c9;
+}
+
 .edit-pad {
-  width: 100%;
+  width: calc(100% - 60px) ;
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  .edit-action {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    padding-right: 30px;
+    align-content: center;
+    justify-content: space-between;
+    .edit-input {
+      width: 900px;
+      height: 45px;
+      margin-top: 7px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      border: none;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 20px;
+      padding-left: 10px;
+    }
+    .edit-push {
+      margin-top: 7px;
+      @include button-normol(40px)
+    }
+  }
   .edit-box {
-    width: 50%;
-    margin-right: 12px;
+    width: calc(50% - 10px);
+    margin-right: 20px;
     height: 100%;
+    .CodeMirror {
+      border-radius: 20px;
+      opacity: .8;
+    }
     .edit-code {
       height: 100%;
       .CodeMirror {
@@ -14,8 +47,10 @@
     }
   }
   .edit-show {
-    width: 50%;
-    background: rgb(255,255,255);
+    width: calc(50% - 10px);
+    background: rgba(255,255,255, 0.8);
+    border-radius: 20px;
+    padding-left: 20px;
   }
 }
 

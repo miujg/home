@@ -3,55 +3,25 @@
  */
 import './editPad.scss'
 import React, {useState, useEffect} from 'react'
+import { Input } from 'antd'
 import Markdown from 'react-markdown'
 import {Controlled as CodeMirror} from 'react-codemirror2'
 
 import Highlight from 'react-highlight'
-// code hight light 
 import 'highlight.js/styles/github.css'
 
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/material.css'
 
 import 'codemirror/mode/javascript/javascript'
-import 'codemirror/mode/markdown/markdown'
 import 'codemirror/mode/jsx/jsx'
+import 'codemirror/mode/markdown/markdown'
 
 import CodeRender from './CodeRender'
 
-const str = `
-## Custom code renderer
-
-This example shows how you can make react-markdown syntax-highlight code blocks.
-By default, react-markdown will simply wrap code blocks in <pre><code>.
-
-\`\`\`js
-const React = require('react')
-const ReactDOM = require('react-dom')
-const Markdown = require('react-markdown')
-const CodeRenderer = require('./code-renderer')
-
-ReactDOM.render(
-  React.createElement(Markdown, {
-    source: 'your markdown here',
-    renderers: {
-      CodeBlock: CodeRenderer
-      Code: CodeRenderer
-    }
-  }),
-  document.body
-)
-\`\`\`
-
-By checking the \`inline\` property, we can reuse the same renderer for both inline and blocks of code!
-For instance, we could highlight \`const React = require('react')\` inline.
-
-See \`examples/custom-renderers\` for the code behind this.
-`
-
 export default function EditPad(props: any) {
 
-  const [text, setText] = useState(str)
+  const [text, setText] = useState('')
 
   useEffect(() => {
   })
@@ -69,6 +39,10 @@ export default function EditPad(props: any) {
 
   return (
     <div className={'edit-pad'}>
+      <div className={'edit-action'}>
+        <input className={'edit-input'} placeholder={'article cnm title~~~~'} type={'text'} />
+        <span className={'edit-push'}>发 布</span>
+      </div>
       <div className={'edit-box'}>
         <CodeMirror
           value={text}

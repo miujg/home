@@ -46,3 +46,20 @@
         -webkit-border-radius: 4px;
     }
 }
+
+@mixin  button-normol($height: 28px) {
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    background-color: #0bf;
+    border-radius: 5px;
+    padding: 2px 3px;
+    text-align: center;
+    min-width: 85px;
+    height: $height;
+    line-height: $height;
+    &:hover {
+    background: #9c9;
+    padding: 3px 4px;
+    }
+}
