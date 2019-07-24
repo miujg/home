@@ -7,6 +7,8 @@ import Markdown from 'react-markdown'
 import {Controlled as CodeMirror} from 'react-codemirror2'
 
 import Highlight from 'react-highlight'
+// code hight light 
+import 'highlight.js/styles/github.css'
 
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/material.css'
@@ -49,7 +51,7 @@ See \`examples/custom-renderers\` for the code behind this.
 
 export default function EditPad(props: any) {
 
-  const [text, setText] = useState('')
+  const [text, setText] = useState(str)
 
   useEffect(() => {
   })
@@ -81,15 +83,12 @@ export default function EditPad(props: any) {
       </div>
       <div className={'edit-show'}>
         <Markdown 
-          source={str}
+          source={text}
           escapeHtml 
           renderers={{
             code: CodeRender
           }}  
         />
-        <Highlight className={'js'}> 
-          { `let a = 'xxx'` }
-        </Highlight>
       </div>
     </div>
   )
