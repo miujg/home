@@ -4,8 +4,8 @@
 import './editPad.scss'
 import React, {useState, useEffect, createRef, ChangeEvent} from 'react'
 import Markdown from 'react-markdown'
+import axios from 'src/tool/axios'
 import {Controlled as CodeMirror} from 'react-codemirror2'
-
 import Highlight from 'react-highlight'
 import 'highlight.js/styles/github.css'
 
@@ -28,7 +28,6 @@ export default function EditPad(props: any) {
   const [content, setContent] = useState('# markdown')
 
   useEffect(() => {
-    console.log('focus~~~~')
     titleEl.current.focus()
   }, [title])
 
@@ -51,8 +50,10 @@ export default function EditPad(props: any) {
 
   // 发布
   const handleClickPush = () => {
-    console.log('标题', title)
-    console.log('内容', content)
+    axios.post('/article', {title: title, content: content})
+      .then((result:any) => {
+        console.log(result)
+      })
   }
 
   return (

@@ -14,7 +14,6 @@
       "cons/*": ["src/containers/*"],
       "action/*": ["src/redux/action"],
       "store": ["src/store.tsx"],
-      "tooles": ["src/tiiles/*"],
       "config": ["../config/*"]
     },
     "moduleResolution": "node"
