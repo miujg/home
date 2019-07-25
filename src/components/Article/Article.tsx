@@ -21,7 +21,7 @@ export default function Article(props: IArticle) {
       </div>
       <p className={'content'}>
         <Markdown 
-          source={props.article.content}
+          source={props.article.content.slice(0, 300) + '...'}
           escapeHtml 
           renderers={{
             code: CodeRender
