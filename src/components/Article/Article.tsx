@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 
 interface IArticle {
   article?: {
-    name: string,
+    title: string,
     createTime: string,
     content: string
   } 
@@ -14,7 +14,7 @@ export default function Article(props: IArticle) {
   return (
     <div className={'article'}>
       <div className={'header'}>
-        <h1 className={'title'}>{props.article.name}</h1>
+        <h1 className={'title'}>{props.article.title}</h1>
         <span className={'create-time'}>{props.article.createTime}</span>        
       </div>
       <p className={'content'}>
@@ -29,7 +29,7 @@ export default function Article(props: IArticle) {
 
 Article.defaultProps ={
   article: {
-    name: '博客文章标题',
+    title: '博客文章标题',
     createTime: '2019-07-22',
     content: `React 没有提供将可复用性行为“附加”到组件的途径（例如，把组件连接到 store）。如果你使用过 React 一段时间，
     你也许会熟悉一些解决此类问题的方案，比如 render props 和 高阶组件。但是这类方案需要重新组织你的组件结构，这可能会很麻烦，

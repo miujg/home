@@ -55,7 +55,7 @@ export default function EditPad(props: any) {
         console.log(result)
       })
   }
-
+  
   return (
     <div className={'edit-pad'}>
       <div className={'edit-action'}>
