@@ -7,10 +7,6 @@ import Markdown from 'react-markdown'
 import axios from 'src/tool/axios'
 import {Controlled as CodeMirror} from 'react-codemirror2'
 import Highlight from 'react-highlight'
-import 'highlight.js/styles/github.css'
-
-import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/material.css'
 
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/jsx/jsx'

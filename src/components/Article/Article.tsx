@@ -1,5 +1,7 @@
 import './article.scss'
 import React, {useState, useEffect} from 'react'
+import Markdown from 'react-markdown'
+import {CodeRender} from 'coms/index'
 
 interface IArticle {
   article?: {
@@ -18,7 +20,13 @@ export default function Article(props: IArticle) {
         <span className={'create-time'}>{props.article.createTime}</span>        
       </div>
       <p className={'content'}>
-        {props.article.content}
+        <Markdown 
+          source={props.article.content}
+          escapeHtml 
+          renderers={{
+            code: CodeRender
+          }}  
+        />
       </p>
       <div className={'bottom'}>
         <span className={'read-more'}>阅读全文>></span>
