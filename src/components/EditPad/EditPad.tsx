@@ -2,8 +2,7 @@
  * markdown 编辑器
  */
 import './editPad.scss'
-import React, {useState, useEffect} from 'react'
-import { Input } from 'antd'
+import React, {useState, useEffect, createRef, ChangeEvent} from 'react'
 import Markdown from 'react-markdown'
 import {Controlled as CodeMirror} from 'react-codemirror2'
 
@@ -19,12 +18,21 @@ import 'codemirror/mode/markdown/markdown'
 
 import CodeRender from './CodeRender'
 
+
+
 export default function EditPad(props: any) {
 
-  const [text, setText] = useState('')
+  //标题
+  const [title, setTitle] = useState('')
+  // 内容
+  const [content, setContent] = useState('# markdown')
 
   useEffect(() => {
-  })
+    console.log('focus~~~~')
+    titleEl.current.focus()
+  }, [title])
+
+  const titleEl = createRef<HTMLInputElement>()
 
   const options = {
     mode: 'markdown',
@@ -33,23 +41,33 @@ export default function EditPad(props: any) {
   }
 
   const handleChange = (newValue:any) => {
-    console.log(newValue)
-    setText(newValue)
+    setContent(newValue)
+  }
+
+  // 获取标题
+  const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value)
+  }
+
+  // 发布
+  const handleClickPush = () => {
+    console.log('标题', title)
+    console.log('内容', content)
   }
 
   return (
     <div className={'edit-pad'}>
       <div className={'edit-action'}>
-        <input className={'edit-input'} placeholder={'article cnm title~~~~'} type={'text'} />
-        <span className={'edit-push'}>发 布</span>
+        <input onChange={handleTitleChange} ref={titleEl} className={'edit-input'} placeholder={'article title~~~~'} type={'content'} />
+        <span onClick={handleClickPush} className={'edit-push'}>发 布</span>
       </div>
       <div className={'edit-box'}>
         <CodeMirror
-          value={text}
+          value={content}
           className={'edit-code'}
           options={options}
           onBeforeChange={(editor, data, value) => {
-            setText(value)
+            setContent(value)
           }}
           onChange={(editor, data, value) => {
           }}
@@ -57,7 +75,7 @@ export default function EditPad(props: any) {
       </div>
       <div className={'edit-show'}>
         <Markdown 
-          source={text}
+          source={content}
           escapeHtml 
           renderers={{
             code: CodeRender
