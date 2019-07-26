@@ -22,7 +22,6 @@ export default function Main(props:any) {
 
   return (
     <div className={'main'}>
-      <div>{search.search}</div>
       {
         articles.map((item:any, i) => (
           <Article key={`ar${i}`} article={item} />
