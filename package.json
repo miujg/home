@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@types/mockjs": "^1.0.2",
     "@types/react-codemirror": "^1.0.2",
     "@types/react-dom": "^16.8.4",
     "@types/react-highlight": "^0.12.1",
@@ -61,6 +62,7 @@
     "express": "^4.17.1",
     "iscroll": "^5.2.0",
     "lib-flexible": "^0.3.2",
+    "mockjs": "^1.0.1-beta3",
     "moment": "^2.24.0",
     "postcss-px2rem": "^0.3.0",
     "qs": "^6.7.0",

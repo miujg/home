@@ -1,6 +1,7 @@
 import './article.scss'
 import React, {useState, useEffect} from 'react'
 import Markdown from 'react-markdown'
+import Mock from 'mockjs'
 import {CodeRender} from 'coms/index'
 
 interface IArticle {
@@ -11,7 +12,23 @@ interface IArticle {
   } 
 }
 
+const mock = Mock.Random
+const count = mock.natural(200,300)
+
 export default function Article(props: IArticle) {
+
+  const [bstr, setBstr] = useState('阅读全文>>')
+  const [content, setContent] = useState(`${props.article.content.slice(0, count)} ...`)
+
+  const handleClickBtn = () =>{
+    if(bstr === '阅读全文>>') {
+      setBstr('收起^')
+      setContent(props.article.content)
+    } else {
+      setBstr('阅读全文>>')
+      setContent(`${props.article.content.slice(0, count)} ...`)
+    }
+  }
   
   return (
     <div className={'article'}>
@@ -21,7 +38,7 @@ export default function Article(props: IArticle) {
       </div>
       <p className={'content'}>
         <Markdown 
-          source={props.article.content.slice(0, 300) + '...'}
+          source={content}
           escapeHtml 
           renderers={{
             code: CodeRender
@@ -29,7 +46,7 @@ export default function Article(props: IArticle) {
         />
       </p>
       <div className={'bottom'}>
-        <span className={'read-more'}>阅读全文>></span>
+        <span onClick={handleClickBtn} className={'read-more'}>{bstr}</span>
       </div>
     </div>
   )
@@ -39,10 +56,6 @@ Article.defaultProps ={
   article: {
     title: '博客文章标题',
     createTime: '2019-07-22',
-    content: `React 没有提供将可复用性行为“附加”到组件的途径（例如，把组件连接到 store）。如果你使用过 React 一段时间，
-    你也许会熟悉一些解决此类问题的方案，比如 render props 和 高阶组件。但是这类方案需要重新组织你的组件结构，这可能会很麻烦，
-    使你的代码难以理解。如果你在 React DevTools 中观察过 React 应用，你会发现由 providers，consumers，高阶组件，render props 
-    等其他抽象层组成的组件会形成“嵌套地狱”。尽管我们可以在 DevTools 过滤掉它们，但这说明了一个更深层次的问题：React 需要为共享状
-    态逻辑提供更好的原生途径。`
+    content: `### markdown`
   }
 }
