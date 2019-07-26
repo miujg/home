@@ -1,9 +1,16 @@
 import './nav.scss'
 import React, {useState, useEffect} from 'react'
+import {useDispatch} from 'store'
 import {NavLink} from 'react-router-dom'
 import {Icon, Input} from 'antd'
 
 export default function Nav(props:any) {
+
+  const dispatch = useDispatch()
+
+  const handleSearch = (value:string) => {
+    dispatch({type: 'CHANGE_SEARCH', value: value})
+  }
 
   return (
     <div className={'nav'}>
@@ -16,7 +23,7 @@ export default function Nav(props:any) {
       <div className={'search-box'}>
         <Input.Search
           placeholder="input search text"
-          onSearch={value => console.log(value)}
+          onSearch={handleSearch}
           style={{ width: 200 }}
         />
       </div>

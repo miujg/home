@@ -1,10 +1,9 @@
 import {createStore, Store} from 'redux'
 import {reducers} from './redux/reducers'
-import {userState, infoState} from './redux/interfaces'
+import {infoState} from './redux/interfaces'
 import {create} from 'redux-react-hook'
 
 export interface IState {
-  user: userState
   info: infoState
 }
 

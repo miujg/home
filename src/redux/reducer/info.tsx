@@ -1,21 +1,21 @@
 interface infoState {
-  sex: string
+  search: string
 }
 
 const INITIAL_STATE = {
-  sex: '男'
+  search: 'hook'
 }
 
 type Action =
  | {
-   type: 'CHANGE_SEX',
+   type: 'CHANGE_SEARCH',
    value: string
  }
 
 function info(state: infoState = INITIAL_STATE, action:Action) {
   switch(action.type){
-    case 'CHANGE_SEX': {
-      return {...state, sex: action.value}
+    case 'CHANGE_SEARCH': {
+      return {...state, search: action.value}
     }
     
     default: return state
