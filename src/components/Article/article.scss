@@ -47,3 +47,32 @@
     }
   }
 }
+
+@media screen and (max-width: $screen-phone) {
+  .article {
+    margin: 10px;
+    width: calc(100% - 20px);
+    .header {
+      padding: 0;
+      margin-left: 12px;
+      margin-right: 12px;
+      height: 38px;
+      border: none;
+      border-bottom: 2px solid #ddd;
+      .title {
+        font-size: 22px;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        line-height: 34px;
+      }
+      .create-time {
+        display: none;
+      }
+    }
+    .content {
+      padding: 0 12px;
+    }
+  }
+}

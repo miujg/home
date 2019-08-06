@@ -1,5 +1,5 @@
 import './routers.scss'
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import{Route, Switch, HashRouter} from 'react-router-dom'
 import {Main, Nav} from 'cons/index'
 import {EditPad} from 'coms/index'
@@ -13,16 +13,19 @@ import 'codemirror/theme/material.css'
 
 export default function Routers(props:object) {
   
-  // 手机端滚动事件
+  const [navClass, setNavClass] = useState('')
+
   const handleScroll = (e:React.UIEvent<HTMLDivElement>) => {
-    console.log(e.currentTarget.scrollTop)
+    let distance = e.currentTarget.scrollTop
+    if(distance < 68) setNavClass('')
+    if(distance >= 68) setNavClass('head-fixed')
   }
 
   return(
     <div className={'container'} onScroll={handleScroll}>
       <HashRouter>
         <div className={'left-nav'}>
-          <Nav />
+          <Nav navClass={navClass}/>
         </div>
         <div className={'right-content'}>
           <Switch>

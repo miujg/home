@@ -1,27 +1,28 @@
 .nav {
   height: 100%;
   width: 100%;
+  position: relative;
   .nav-mask {
     height: 180px;
+    width: 100%;
     background: rgba(201,153,121, 0.3);
+    position: absolute;
+  }
+  .nav-content {
+    padding-top: 112px; 
   }
   .user-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    padding-top: 58px;
     .user-head {
       height: 128px;
       width: 128px;
       border-radius: 50%;
-      background: black;
       border: 5px solid #fff;
-      position: relative;
       background: url('./head.jpg');
       background-size: 100% 100%;
-      position: absolute;
-      top: -64px;
     }
     .user-name {
       font-size: 30px;
@@ -48,8 +49,6 @@
       background: rgba(255,255,255,0.1);
       border: 1px solid #ccc;
       color: #666;
-      &:hover {
-      }
     }
   }
   .nav-icon {
@@ -86,10 +85,25 @@
     .nav-mask {
       height: 110px;
     }
+    &.head-fixed {
+      .nav-mask {
+        height: 42px;
+        width: 100%;
+        position: fixed;
+      }
+    }
+    .nav-content {
+      padding-top: 10px;
+    }
     .user-info {
       .user-name {
         font-size: 26px;
         margin-bottom: 3px;
+      }
+    }
+    .nav-icon {
+      .edit {
+        display: none;
       }
     }
   }
