@@ -1,5 +1,5 @@
 import './routers.scss'
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import{Route, Switch, HashRouter} from 'react-router-dom'
 import {Main, Nav} from 'cons/index'
 import {EditPad} from 'coms/index'
@@ -13,8 +13,13 @@ import 'codemirror/theme/material.css'
 
 export default function Routers(props:object) {
   
+  // 手机端滚动事件
+  const handleScroll = (e:React.UIEvent<HTMLDivElement>) => {
+    console.log(e.currentTarget.scrollTop)
+  }
+
   return(
-    <div className={'container'}>
+    <div className={'container'} onScroll={handleScroll}>
       <HashRouter>
         <div className={'left-nav'}>
           <Nav />

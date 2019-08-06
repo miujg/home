@@ -80,3 +80,17 @@
     }
   }
 }
+
+@media screen and (max-width: $screen-phone) { 
+  .nav {
+    .nav-mask {
+      height: 110px;
+    }
+    .user-info {
+      .user-name {
+        font-size: 26px;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}

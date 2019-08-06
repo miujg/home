@@ -27,10 +27,12 @@ body{
 // iphone端
 @media screen and (max-width: $screen-phone) {
   .container {
-    background: none;
+    background: url('./bg.jpg');
     display: block;
+    height: 667px;
+    overflow-y: auto;
     .left-nav {
-      height: 200px;
+      height: 395px;
       width: 100%;
       overflow: hidden;
     }
